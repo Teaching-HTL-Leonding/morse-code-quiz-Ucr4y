@@ -1,0 +1,4 @@
+<label>Input your Morsecode: </label>
+<input type="text" name="inputMorseCode" [(ngModel)]="inputMorseCode" (input)="checkValidInput()">
+<button [disabled]="!validInput" (click)="decodeService.decode(inputMorseCode)">Encode</button>
+<input type="readonly" name="outputEncodedText" [(ngModel)]="decodeService.plainText">
