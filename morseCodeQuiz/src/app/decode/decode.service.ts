@@ -35,6 +35,7 @@ export class DecodeService {
   plainText: string = '';
   splittedText: string[] = [];
   decode(text: string): string {
+    this.plainText = '';
     this.splittedText = text.split(' ');
     for (let i = 0; i < this.splittedText.length; i++) {
       if (this.splittedText[i] === '/') {
@@ -45,6 +46,9 @@ export class DecodeService {
             this.plainText += String.fromCharCode(j + 65);
           }
         }
+    }
+    if (this.plainText === '') {
+      this.plainText = 'Wrong Input!';
     }
     return this.plainText;
   }

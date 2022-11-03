@@ -34,6 +34,7 @@ export class EncodeService {
   morseCoded: string = '';
   constructor() {}
   encode(text: string): void {
+    this.morseCoded = '';
     text = text.trim();
     for (let i = 0; i < text.length; i++) {
       if (text[i] >= 'A' && text[i] <= 'Z') {
@@ -41,10 +42,11 @@ export class EncodeService {
         this.morseCoded += morseCode[index];
         this.morseCoded += ' ';
       } else if (text[i] === ' ') {
-        this.morseCoded += ' / ';
+        this.morseCoded += '/ ';
       } else {
         this.morseCoded = 'Input is not between A and Z';
       }
     }
+    this.morseCoded = this.morseCoded.trim();
   }
 }

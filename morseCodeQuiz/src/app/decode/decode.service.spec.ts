@@ -4,13 +4,24 @@ import { DecodeService } from './decode.service';
 
 describe('DecodeService', () => {
   let service: DecodeService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(DecodeService);
+  it('should decode a morse letter', () => {
+    service = new DecodeService();
+    expect(service.decode('...')).toBe('S');
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should decode a morse word', () => {
+    service = new DecodeService();
+    expect(service.decode('.... . .-.. .-.. ---')).toBe('HELLO');
+  });
+  it('should decode a morse sentence', () => {
+    service = new DecodeService();
+    expect(
+      service.decode(
+        '.... . .-.. .-.. --- / -- -.-- / -. .- -- . / .. ... / .-. --- -... .. -.'
+      )
+    ).toBe('HELLO MY NAME IS ROBIN');
+  });
+  it('shows an Error message if input is wrong', () => {
+    service = new DecodeService();
+    expect(service.decode('jdl')).toBe('Wrong Input!');
   });
 });
