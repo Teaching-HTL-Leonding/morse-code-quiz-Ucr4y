@@ -1,5 +1,7 @@
+<html>
 <label>Input your Plaintext: </label>
 <input type="text" name="inputPlainText" [(ngModel)]="inputPlainText" (input)="checkValidInput()">
-{{checkValidInput() | json}}
 <button [disabled]="!checkValidInput()" (click)="encodeService.encode(inputPlainText)">Encode</button>
 <input type="readonly" name="outputEncodedText" [(ngModel)]="encodeService.morseCoded">
+
+</html>

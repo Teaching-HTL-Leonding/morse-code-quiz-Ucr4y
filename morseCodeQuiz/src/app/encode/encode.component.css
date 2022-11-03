@@ -1,0 +1,22 @@
+html{
+  font-size: 20px;
+}
+input{
+  border-color: red;
+  border-style: dotted;
+}
+input:focus{
+  outline-color: green;
+  outline-style: dashed;
+}
+
+button{
+  padding:10px;
+  border-radius: 50%;
+  background-color: green;
+  color: white;
+  font-size: 15px;
+}
+button:disabled{
+  background-color: red;
+}
